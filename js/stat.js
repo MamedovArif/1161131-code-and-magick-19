@@ -2,7 +2,7 @@
 
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
-var rando = Math.random().toFixed(2) * 100;
+
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var GAP = 10;
@@ -47,7 +47,9 @@ window.renderStatistics = function(ctx, players, times) {
     if (players[i] === 'Вы') {
       ctx.fillStyle = 'red';
     } else {
-      ctx.fillStyle = 'hsl(240, 100%, 50%)';
+      var rando = Math.random().toFixed(2) * 100;
+      alert(rando);
+      ctx.fillStyle = 'hsl(240,' + rando + '%, 50%)';
     }
     ctx.fillRect(CLOUD_X + GAP + HOR_GAP + i * (COLUMN + DIST), coordY, COLUMN, -(height * times[i] / maxTime));
   }
