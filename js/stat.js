@@ -42,16 +42,17 @@ window.renderStatistics = function(ctx, players, times) {
   var maxTime = getMaxElement(times);
 
   for (var i = 0; i < players.length; i++) {
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = '#000000';
     ctx.fillText(players[i], CLOUD_X + GAP + HOR_GAP + i * (COLUMN + DIST), CLOUD_HEIGHT - GAP);
     if (players[i] === 'Вы') {
       ctx.fillStyle = 'red';
     } else {
       var rando = Math.random().toFixed(2) * 100;
-      alert(rando);
       ctx.fillStyle = 'hsl(240,' + rando + '%, 50%)';
     }
     ctx.fillRect(CLOUD_X + GAP + HOR_GAP + i * (COLUMN + DIST), coordY, COLUMN, -(height * times[i] / maxTime));
+    ctx.fillStyle = '#000000';
+    ctx.fillText(Math.round(times[i]), CLOUD_X + GAP + HOR_GAP + i * (COLUMN + DIST), CLOUD_HEIGHT - GAP - VERT_GAP - (height * times[i] / maxTime));
   }
 }
 
