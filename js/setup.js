@@ -1,5 +1,47 @@
 'use strict';
-function randomInteger(min, max) {
+
+var userDialog = document.querySelector('.setup');
+userDialog.classList.remove('hidden');
+
+document.querySelector('.setup-similar').classList.remove('hidden');
+
+var similarListElement = document.querySelector('.setup-similar-list');
+var similarWizardTemplate = document.querySelector('#similar-wizard-template')
+    .content
+    .querySelector('.setup-similar-item');
+
+var WIZARD_NAMES = ['Дамблдор', 'Волдеморт', 'Доктор Стрендж', 'Гарри Поттер'];
+
+var wizards = [
+  {
+    name: WIZARD_NAMES[0],
+    coatColor: 'rgb(241, 43, 107)'
+  },
+  {
+    name: WIZARD_NAMES[1],
+    coatColor: 'rgb(215, 210, 55)'
+  },
+  {
+    name: WIZARD_NAMES[2],
+    coatColor: 'rgb(101, 137, 164)'
+  },
+  {
+    name: WIZARD_NAMES[3],
+    coatColor: 'rgb(340, 127, 127)'
+  }
+];
+
+
+
+for (var j = 0; j < wizards.length; j++) {
+  var wizardElement = similarWizardTemplate.cloneNode(true);
+  wizardElement.querySelector('.setup-similar-label').textContent = wizards[j].name;
+  wizardElement.querySelector('.wizard-coat').style.fill = wizards[j].coatColor;
+  wizardElement.querySelector('.wizard-eyes').style.fill = wizards[j].eyesColor;
+
+  similarListElement.appendChild(wizardElement);
+};
+/*function randomInteger(min, max) {
   let rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
 }
@@ -27,9 +69,8 @@ for (var i = 0; i < 4; i++) {
 console.log(wizards);
 
 var similarListElement = catalog.querySelector('.setup-similar-list');
-var similarWizardTemplate = document.querySelector('#similar-wizard-template')
-    .content
-    .querySelector('.setup-similar-item');
+var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
+console.log(wizardElement);
 
 for (var j = 0; j < wizards.length; j++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -39,4 +80,4 @@ for (var j = 0; j < wizards.length; j++) {
 
   similarListElement.appendChild(wizardElement);
 };
-console.log(similarListElement);
+console.log(similarListElement);*/
