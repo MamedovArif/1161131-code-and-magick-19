@@ -19,7 +19,7 @@ var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 for (var i = 0; i < 4; i++) {
   var mainObject = {
     number: i,
-    name: `${names[randomInteger(0, names.length - 1)]} ${surnames[randomInteger(0, surnames.length - 1)]}`,
+    name: names[randomInteger(0, names.length - 1)] + ' ' + surnames[randomInteger(0, surnames.length - 1)],
     coatColor: coatColors[randomInteger(0, coatColors.length - 1)],
     eyesColor: eyesColors[randomInteger(0, eyesColors.length - 1)],
   }
