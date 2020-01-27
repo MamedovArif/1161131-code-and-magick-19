@@ -22,12 +22,10 @@ for (var i = 0; i < 4; i++) {
     name: names[randomInteger(0, names.length - 1)] + ' ' + surnames[randomInteger(0, surnames.length - 1)],
     coatColor: coatColors[randomInteger(0, coatColors.length - 1)],
     eyesColor: eyesColors[randomInteger(0, eyesColors.length - 1)],
-  }
+  };
 
   wizards.push(mainObject);
 }
-
-console.log(wizards);
 
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
@@ -35,14 +33,10 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .querySelector('.setup-similar-item');
 
 for (var j = 0; j < wizards.length; j++) {
-  console.log(wizards[j].name);
   var wizardElement = similarWizardTemplate.cloneNode(true);
   wizardElement.querySelector('.setup-similar-label').textContent = wizards[j].name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizards[j].coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill = wizards[j].eyesColor;
 
   similarListElement.appendChild(wizardElement);
-
-};
-console.log(similarListElement);
-
+}
