@@ -6,8 +6,39 @@ function randomInteger(min, max) {
 }
 
 var userDialog = document.querySelector('.setup');
-userDialog.classList.remove('hidden');
+var setupOpen = document.querySelector('.setup-open');
+var closeUserDialog = userDialog.querySelector('.setup-close');
+var coatColor = userDialog.querySelector('input[name] = coat-color');
+console.log(coatColor);
 
+setupOpen.addEventListener('click', function () {
+  userDialog.classList.remove('hidden');
+});
+
+closeUserDialog.addEventListener('click', function () {
+  userDialog.classList.add('hidden');
+});
+closeUserDialog.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === 13) {
+    userDialog.classList.add('hidden');
+  }
+});
+document.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === 27) {
+    userDialog.classList.add('hidden');
+  }
+});
+setupOpen.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === 13) {
+    userDialog.classList.remove('hidden');
+  }
+});
+rgb (101, 137, 164)
+rgb (241, 43, 107)
+rgb (146, 100, 161)
+rgb (56, 159, 117)
+rgb (215, 210, 55)
+rgb (0, 0, 0)
 
 document.querySelector('.setup-similar').classList.remove('hidden');
 
@@ -48,3 +79,5 @@ for (var i = 0; i < wizards.length; i++) {
 }
 similarListElement.appendChild(fragment);
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
+
+
