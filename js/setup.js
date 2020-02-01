@@ -8,7 +8,9 @@ function randomInteger(min, max) {
 var userDialog = document.querySelector('.setup');
 var setupOpen = document.querySelector('.setup-open');
 var closeUserDialog = userDialog.querySelector('.setup-close');
-var coatColor = userDialog.querySelector('input[name] = coat-color');
+var coatColor = userDialog.querySelector('input[name = coat-color]');
+console.log(coatColor);
+coatColor.value = 'red';
 console.log(coatColor);
 
 setupOpen.addEventListener('click', function () {
