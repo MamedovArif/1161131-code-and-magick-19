@@ -1,4 +1,6 @@
 'use strict';
+var KEY_ESCAPE = 27;
+var KEY_ENTER = 13;
 
 function randomInteger(min, max) {
   var rand = min + Math.random() * (max + 1 - min);
@@ -6,13 +8,13 @@ function randomInteger(min, max) {
 }
 
 var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)',
- 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+  'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
-var fireballColors =['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
 var userDialog = document.querySelector('.setup');
 var inputUserName = userDialog.querySelector('.setup-user-name');
-var fireball = userDialog.querySelector('.setup-fireball-wrap')
+var fireball = userDialog.querySelector('.setup-fireball-wrap');
 var tools = userDialog.querySelector('.setup-wizard');
 var coatColor = tools.querySelector('.wizard-coat');
 var eyesColor = tools.querySelector('.wizard-eyes');
@@ -22,15 +24,10 @@ var inputFireballColor = fireball.querySelector('input[name = fireball-color]');
 var setupOpen = document.querySelector('.setup-open');
 var closeUserDialog = userDialog.querySelector('.setup-close');
 
-
 coatColor.addEventListener('click', function () {
   coatColor.style.fill = coatColors[randomInteger(0, coatColors.length - 1)];
   inputCoatColor.value = coatColor.style.fill;
 });
-
-inputUserName.addEventListener('click', fuction () {
-
-})
 
 eyesColor.addEventListener('click', function () {
   eyesColor.style.fill = eyesColors[randomInteger(0, eyesColors.length - 1)];
@@ -42,25 +39,46 @@ fireball.addEventListener('click', function () {
   inputFireballColor.value = fireball.style.background;
 });
 
+var escPressPopupHandler = function (evt) {
+  if (evt.keyCode === KEY_ESCAPE) {
+    closePopup();
+  }
+};
+
+var openPopup = function () {
+  userDialog.classList.remove('hidden');
+  document.addEventListener('keydown', escPressPopupHandler);
+};
+
+var closePopup = function () {
+  userDialog.classList.add('hidden');
+  document.removeEventListener('keydown', escPressPopupHandler);
+};
+
+inputUserName.addEventListener('focus', function () {
+  document.removeEventListener('keydown', escPressPopupHandler);
+});
+
+inputUserName.addEventListener('blur', function () {
+  document.addEventListener('keydown', escPressPopupHandler);
+});
 
 setupOpen.addEventListener('click', function () {
-  userDialog.classList.remove('hidden');
+  openPopup();
 });
 
 closeUserDialog.addEventListener('click', function () {
-  userDialog.classList.add('hidden');
+  closePopup();
 });
 closeUserDialog.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 13) {
-    userDialog.classList.add('hidden');
+  if (evt.keyCode === KEY_ENTER) {
+    closePopup();
   }
 });
-document.addEventListener('keydown', function () {
 
-});
 setupOpen.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 13) {
-    userDialog.classList.remove('hidden');
+  if (evt.keyCode === KEY_ENTER) {
+    openPopup();
   }
 });
 
