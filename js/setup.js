@@ -5,13 +5,43 @@ function randomInteger(min, max) {
   return Math.floor(rand);
 }
 
+var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)',
+ 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
+var fireballColors =['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+
 var userDialog = document.querySelector('.setup');
+var inputUserName = userDialog.querySelector('.setup-user-name');
+var fireball = userDialog.querySelector('.setup-fireball-wrap')
+var tools = userDialog.querySelector('.setup-wizard');
+var coatColor = tools.querySelector('.wizard-coat');
+var eyesColor = tools.querySelector('.wizard-eyes');
+var inputCoatColor = userDialog.querySelector('input[name = coat-color]');
+var inputEyesColor = userDialog.querySelector('input[name = eyes-color]');
+var inputFireballColor = fireball.querySelector('input[name = fireball-color]');
 var setupOpen = document.querySelector('.setup-open');
 var closeUserDialog = userDialog.querySelector('.setup-close');
-var coatColor = userDialog.querySelector('input[name = coat-color]');
-console.log(coatColor);
-coatColor.value = 'red';
-console.log(coatColor);
+
+
+coatColor.addEventListener('click', function () {
+  coatColor.style.fill = coatColors[randomInteger(0, coatColors.length - 1)];
+  inputCoatColor.value = coatColor.style.fill;
+});
+
+inputUserName.addEventListener('click', fuction () {
+
+})
+
+eyesColor.addEventListener('click', function () {
+  eyesColor.style.fill = eyesColors[randomInteger(0, eyesColors.length - 1)];
+  inputEyesColor.value = eyesColor.style.fill;
+});
+
+fireball.addEventListener('click', function () {
+  fireball.style.background = fireballColors[randomInteger(0, fireballColors.length - 1)];
+  inputFireballColor.value = fireball.style.background;
+});
+
 
 setupOpen.addEventListener('click', function () {
   userDialog.classList.remove('hidden');
@@ -25,30 +55,20 @@ closeUserDialog.addEventListener('keydown', function (evt) {
     userDialog.classList.add('hidden');
   }
 });
-document.addEventListener('keydown', function (evt) {
-  if (evt.keyCode === 27) {
-    userDialog.classList.add('hidden');
-  }
+document.addEventListener('keydown', function () {
+
 });
 setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === 13) {
     userDialog.classList.remove('hidden');
   }
 });
-rgb (101, 137, 164)
-rgb (241, 43, 107)
-rgb (146, 100, 161)
-rgb (56, 159, 117)
-rgb (215, 210, 55)
-rgb (0, 0, 0)
 
 document.querySelector('.setup-similar').classList.remove('hidden');
 
 var getData = function () {
   var names = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
   var surnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-  var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-  var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 
   var mainObject = {
     name: names[randomInteger(0, names.length - 1)] + ' ' + surnames[randomInteger(0, surnames.length - 1)],
