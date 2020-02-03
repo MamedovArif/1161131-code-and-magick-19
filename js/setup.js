@@ -63,13 +63,9 @@ inputUserName.addEventListener('blur', function () {
   document.addEventListener('keydown', escPressPopupHandler);
 });
 
-setupOpen.addEventListener('click', function () {
-  openPopup();
-});
+setupOpen.addEventListener('click', openPopup);
 
-closeUserDialog.addEventListener('click', function () {
-  closePopup();
-});
+closeUserDialog.addEventListener('click', closePopup);
 closeUserDialog.addEventListener('keydown', function (evt) {
   if (evt.keyCode === KEY_ENTER) {
     closePopup();
