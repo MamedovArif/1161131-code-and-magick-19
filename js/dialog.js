@@ -38,11 +38,11 @@
     eyesColors: eyesColors,
     fireballColors: fireballColors,
     userDialog: userDialog
-  }
+  };
 
   var dialogHandler = userDialog.querySelector('.upload');
 
-  dialogHandler.addEventListener('mousedown', function(evt) {
+  dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
     var startCoords = {
@@ -72,15 +72,15 @@
     };
 
     var onMouseUp = function (upEvt) {
-        upEvt.preventDefault();
+      upEvt.preventDefault();
 
-        document.removeEventListener('mousemove', onMouseMove);
-        document.removeEventListener('mouseup', onMouseUp);
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
 
-        if (dragged) {
+      if (dragged) {
         var onClickPreventDefault = function (clickEvt) {
           clickEvt.preventDefault();
-          dialogHandler.removeEventListener('click', onClickPreventDefault)
+          dialogHandler.removeEventListener('click', onClickPreventDefault);
         };
         dialogHandler.addEventListener('click', onClickPreventDefault);
       }

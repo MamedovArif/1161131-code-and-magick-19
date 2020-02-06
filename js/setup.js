@@ -4,15 +4,15 @@
   var KEY_ENTER = 13;
 
   var escPressPopupHandler = function (evt) {
-      if (evt.keyCode === KEY_ESCAPE) {
-        closePopup();
-      }
-    };
+    if (evt.keyCode === KEY_ESCAPE) {
+      closePopup();
+    }
+  };
 
   var closePopup = function () {
-      window.dialog.userDialog.classList.add('hidden');
-      document.removeEventListener('keydown', escPressPopupHandler);
-    }
+    window.dialog.userDialog.classList.add('hidden');
+    document.removeEventListener('keydown', escPressPopupHandler);
+  };
 
   window.setup = {
     KEY_ENTER: KEY_ENTER,
@@ -27,6 +27,6 @@
       document.addEventListener('keydown', escPressPopupHandler);
     },
     closePopup: closePopup
-  }
+  };
 
 })();
