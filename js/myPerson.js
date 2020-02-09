@@ -22,4 +22,15 @@
     fireball.style.background = window.dialog.fireballColors[window.setup.randomInteger(0, window.dialog.fireballColors.length - 1)];
     inputFireballColor.value = fireball.style.background;
   });
+
+  var form = window.dialog.userDialog.querySelector('.setup-wizard-form');
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(new FormData(form), function (response) {
+      window.dialog.userDialog.classList.add('hidden');
+    }, function (status) {
+      window.dialog.userDialog.classList.remove('hidden');
+      alert(status);
+    });
+    evt.preventDefault();
+  });
 })();

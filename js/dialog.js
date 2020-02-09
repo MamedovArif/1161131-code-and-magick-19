@@ -33,13 +33,6 @@
     }
   });
 
-  window.dialog = {
-    coatColors: coatColors,
-    eyesColors: eyesColors,
-    fireballColors: fireballColors,
-    userDialog: userDialog
-  };
-
   var dialogHandler = userDialog.querySelector('.upload');
 
   dialogHandler.addEventListener('mousedown', function (evt) {
@@ -90,12 +83,11 @@
     document.addEventListener('mouseup', onMouseUp);
   });
 
-  var form = userDialog.querySelector('.setup-wizard-form');
-  form.addEventListener('submit', function (evt) {
-    window.backend.save(new FormData(form), function (response), ... {
-      userDialog.classList.add('hidden');
-    });
-    evt.preventDefault();
-  });
+    window.dialog = {
+    coatColors: coatColors,
+    eyesColors: eyesColors,
+    fireballColors: fireballColors,
+    userDialog: userDialog
+  };
 
 })();
