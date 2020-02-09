@@ -9,7 +9,7 @@
   var save = function (data, onLoad, onError) {
     var URL = 'https://js.dump.academy/code-and-magick';
     var xhr = new XMLHttpRequest();
-    xhr.responseType = 'json'; //ожидаемый тип ответа
+    xhr.responseType = 'json';
 
     xhr.addEventListener('load', function () {
       if (xhr.status === StatusCode.OK) {
@@ -21,14 +21,14 @@
     });
 
     xhr.addEventListener('onerror', function () {
-      onError('Произошла ошибка соединения')
+      onError('Произошла ошибка соединения');
     });
 
     xhr.open('POST', URL);
     xhr.send(data);
   };
 
-  var load = function(onLoad, onError) {
+  var load = function (onLoad, onError) {
     var URL = 'https://js.dump.academy/code-and-magick/data';
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
@@ -42,7 +42,7 @@
     });
 
     xhr.addEventListener('onerror', function () {
-      onError('Произошла ошибка соединения')
+      onError('Произошла ошибка соединения');
     });
     xhr.addEventListener('timeout', function () {
       onError('Запрос не успел выполниться за ' +
@@ -56,6 +56,5 @@
   window.backend = {
     load: load,
     save: save
-  }
+  };
 })();
-

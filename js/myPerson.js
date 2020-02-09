@@ -27,9 +27,10 @@
   form.addEventListener('submit', function (evt) {
     window.backend.save(new FormData(form), function (response) {
       window.dialog.userDialog.classList.add('hidden');
+      console.log(response);
     }, function (status) {
       window.dialog.userDialog.classList.remove('hidden');
-      alert(status);
+      console.log(status);
     });
     evt.preventDefault();
   });

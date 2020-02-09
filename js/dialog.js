@@ -83,7 +83,7 @@
     document.addEventListener('mouseup', onMouseUp);
   });
 
-    window.dialog = {
+  window.dialog = {
     coatColors: coatColors,
     eyesColors: eyesColors,
     fireballColors: fireballColors,
