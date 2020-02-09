@@ -37,4 +37,16 @@
   }
   similarListElement.appendChild(fragment);
   window.dialog.userDialog.querySelector('.setup-similar').classList.remove('hidden');
+
+
+  window.backend.load(function (wizards) {
+  var fragment = document.createDocumentFragment();
+
+  for (var i = 0; i < 4; i++) {
+    fragment.appendChild(renderWizards(wizards[i]));
+  }
+    similarListElement.appendChild(fragment);
+    userDialog.querySelector('.setup-similar').classList.remove('hidden');
+  });
+
 })();
