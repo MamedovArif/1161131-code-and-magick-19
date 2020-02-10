@@ -16,7 +16,6 @@
     return wizardElement;
   };
 
-
   var successHandler = function (wizards) {
     var fragment = document.createDocumentFragment();
 
