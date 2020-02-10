@@ -13,14 +13,14 @@
 
     xhr.addEventListener('load', function () {
       if (xhr.status === StatusCode.OK) {
-        onLoad(xhr.response);
+        onLoad();
       } else {
         onError('Статус ответа: ' + xhr.status +
          ' ' + xhr.statusText);
       }
     });
 
-    xhr.addEventListener('onerror', function () {
+    xhr.addEventListener('error', function () {
       onError('Произошла ошибка соединения');
     });
 
@@ -40,8 +40,7 @@
         onError('Статус ответа: ' + xhr.status + ' ' + xhr.statusText);
       }
     });
-
-    xhr.addEventListener('onerror', function () {
+    xhr.addEventListener('error', function () {
       onError('Произошла ошибка соединения');
     });
     xhr.addEventListener('timeout', function () {

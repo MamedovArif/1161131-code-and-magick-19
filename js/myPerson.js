@@ -25,12 +25,19 @@
 
   var form = window.dialog.userDialog.querySelector('.setup-wizard-form');
   form.addEventListener('submit', function (evt) {
-    window.backend.save(new FormData(form), function (response) {
+    window.backend.save(new FormData(form), function () {
       window.dialog.userDialog.classList.add('hidden');
-      console.log(response);
-    }, function (status) {
+    }, function (text) {
       window.dialog.userDialog.classList.remove('hidden');
-      console.log(status);
+      var node = document.createElement('div');
+      node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+      node.style.position = 'absolute';
+      node.style.left = 0;
+      node.style.right = 0;
+      node.style.fontSize = '30px';
+
+      node.textContent = text;
+      document.body.insertAdjacentElement('afterbegin', node);
     });
     evt.preventDefault();
   });
