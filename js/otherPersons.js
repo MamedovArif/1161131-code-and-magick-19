@@ -16,10 +16,13 @@
     return wizardElement;
   };
 
+  var FIRST_WIZARD = 7;
+  var LAST_WIZARD = 11;
+
   var successHandler = function (wizards) {
     var fragment = document.createDocumentFragment();
 
-    for (var i = 7; i < 11; i++) {
+    for (var i = FIRST_WIZARD; i < LAST_WIZARD; i++) {
       fragment.appendChild(renderWizard(wizards[i]));
     }
     similarListElement.appendChild(fragment);
