@@ -23,11 +23,11 @@
     inputFireballColor.value = fireball.style.background;
   });
 
-  var succsessUpload = function() {
+  var succsessUpload = function () {
     window.dialog.userDialog.classList.add('hidden');
-  }
+  };
 
-  var unsuccessfulUpload = function(text) {
+  var unsuccessfulUpload = function (text) {
     window.dialog.userDialog.classList.remove('hidden');
     var node = document.createElement('div');
     node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
@@ -38,7 +38,7 @@
 
     node.textContent = text;
     document.body.insertAdjacentElement('afterbegin', node);
-  }
+  };
 
   var form = window.dialog.userDialog.querySelector('.setup-wizard-form');
   form.addEventListener('submit', function (evt) {
