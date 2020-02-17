@@ -1,7 +1,5 @@
 'use strict';
 (function () {
-  //document.querySelector('.setup-similar').classList.remove('hidden');
-
   var similar = window.dialog.userDialog.querySelector('.setup-similar');
   var similarListElement = document.querySelector('.setup-similar-list');
   var similarWizardTemplate = document.querySelector('#similar-wizard-template')
@@ -17,19 +15,17 @@
     return wizardElement;
   };
 
-  var render = function(data) {
+  var render = function (data) {
     var takeNumber = data.length > 4 ? 4 : data.length;
     similarListElement.innerHTML = '';
     for (var i = 0; i < takeNumber; i++) {
       similarListElement.appendChild(renderWizard(data[i]));
-
     }
-    console.log(similarListElement);
     similar.classList.remove('hidden');
-  }
+  };
 
   window.render = {
     similarListElement: similarListElement,
     render: render
-  }
+  };
 })();
