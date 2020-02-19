@@ -87,7 +87,8 @@
     coatColors: coatColors,
     eyesColors: eyesColors,
     fireballColors: fireballColors,
-    userDialog: userDialog
+    userDialog: userDialog,
+    dialogHandler: dialogHandler
   };
 
 })();
